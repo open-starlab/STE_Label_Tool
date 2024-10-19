@@ -51,3 +51,4 @@ The **Event Data LabelTool** is designed to assist in annotating event data, whi
 - Ensure that the video format is supported and that your system meets any necessary requirements for optimal performance.
 - For troubleshooting and support, please refer to the issues section of the respective GitHub repositories or create a new issue if needed.
 
+This tool is developed based on the SoccerNet action annotation tool. For more information, visit the [SoccerNetv2-DevKit Annotation](https://github.com/SilvioGiancola/SoccerNetv2-DevKit/tree/main/Annotation/actions) repository.
