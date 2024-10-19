@@ -1,0 +1,8 @@
+short_pass
+high_pass
+long_pass
+carry
+cross
+dribble
+shot_fail
+shot_success
