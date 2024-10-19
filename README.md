@@ -2,6 +2,8 @@
 
 The **Event Data LabelTool** is designed to assist in annotating event data, which can then be used for event modeling with the [openstarlab-preprocessing](https://github.com/open-starlab/PreProcessing) and [openstarlab-event](https://github.com/open-starlab/Event) packages. Depending on the specific video footage, some additional manual preprocessing of the event data may be required to ensure compatibility.
 
+![Event Data LabelTool](https://github.com/open-starlab/Event_Data_LabelTool/blob/main/example.png) <!-- Replace with your image path -->
+
 ## Installation
 
 ### Prerequisites
