@@ -199,3 +199,14 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+
+# License Information for Specific Code
+
+This repository is based on and edited from the [sn-spotting](https://github.com/SoccerNet/sn-spotting/tree/main/Annotation) project. The original code is licensed under the MIT License, and any modifications made in this repository are licensed under the Apache 2.0 License.
+
+Users should carefully review both licenses to ensure compliance when using this code.
+
+| Code Reference | Link                                                                                 | License       | Owner  |
+|----------------|--------------------------------------------------------------------------------------|------------------|------------------|
+| sn-spotting    | [sn-spotting/Annotation](https://github.com/SoccerNet/sn-spotting/tree/main/Annotation) | [MIT License](https://github.com/SoccerNet/sn-spotting/blob/main/LICENSE)      | SoccerNet |
