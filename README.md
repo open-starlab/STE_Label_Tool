@@ -1,6 +1,6 @@
 # Spatial-Temporal Event (STE) label Tool
 
-![ArXiv](https://img.shields.io/badge/ArXiv-2502.02785-b31b1b?logo=arxiv)
+[![ArXiv](https://img.shields.io/badge/ArXiv-2502.02785-b31b1b?logo=arxiv)](https://arxiv.org/abs/2502.02785)
 
 The **STE Label Tool** is designed to assist in annotating event data, which can then be used for event modeling with the [openstarlab-preprocessing](https://github.com/open-starlab/PreProcessing) and [openstarlab-event](https://github.com/open-starlab/Event) packages. Depending on the specific video footage, some additional manual preprocessing of the event data may be required to ensure compatibility.
 
