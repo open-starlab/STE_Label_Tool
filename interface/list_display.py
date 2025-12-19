@@ -24,12 +24,32 @@ class ListDisplay(QWidget):
 
 	def clicked(self, qmodelindex):
 		item = self.list_widget.currentItem()
+		self.main_window.media_player.hide_frame_overlay()
+
+	# def doubleClicked(self, item):
+	# 	row = self.list_widget.currentRow()
+	# 	position = self.main_window.list_manager.event_list[row].position
+	# 	event = self.main_window.list_manager.event_list[row]
+	# 	# self.main_window.media_player.set_annotation_point(event.x_coord, event.y_coord)
+	# 	if self.main_window.media_player.play_button.isEnabled():
+	# 		self.main_window.media_player.set_position(position)
+	# 	self.main_window.setFocus()
 
 	def doubleClicked(self, item):
 		row = self.list_widget.currentRow()
-		position = self.main_window.list_manager.event_list[row].position
+		event = self.main_window.list_manager.event_list[row]
+
 		if self.main_window.media_player.play_button.isEnabled():
-			self.main_window.media_player.set_position(position)
+			# jump to time first
+			self.main_window.media_player.set_position(event.position)
+
+			# show painted frame with cross
+			self.main_window.media_player.show_painted_frame_overlay(
+				position_ms=event.position,
+				frame_x=event.x_coord,
+				frame_y=event.y_coord
+			)
+
 		self.main_window.setFocus()
 
 

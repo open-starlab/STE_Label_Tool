@@ -77,12 +77,14 @@ class MainWindow(QMainWindow):
 
 	def update_coordinates(self, x, y):
 		# Update the coordinates in the EventSelectionWindow
+		self.media_player.hide_frame_overlay()
 		self.event_window.update_coordinates(x, y)
+		# self.media_player.video_widget.set_annotation_point(x, y)
 
 	def keyPressEvent(self, event):
 
 		ctrl = False
-
+		self.media_player.hide_frame_overlay()
 		# Remove an event with the delete key
 		if event.key() == Qt.Key_Delete or event.key() == Qt.Key_Backspace:
 			index = self.list_display.list_widget.currentRow()

@@ -34,6 +34,9 @@ class EventSelectionWindow(QWidget):
         # Add the "Config" button
         self.config_button = QPushButton("Config")
         self.config_button.clicked.connect(self.open_config_window)
+        self.config_button.clicked.connect(
+            self.main_window.media_player.hide_frame_overlay
+        )
 
         #Add the coordinates display label 
         self.coord_label = QLabel("Coordinates")
@@ -53,6 +56,9 @@ class EventSelectionWindow(QWidget):
         # Add the Save button
         self.save_button = QPushButton("Save")
         self.save_button.clicked.connect(self.save_event)
+        self.save_button.clicked.connect(
+            self.main_window.media_player.hide_frame_overlay
+        )
 
         # Create labels for the text areas
         self.label_event = QLabel("Event")
@@ -108,6 +114,7 @@ class EventSelectionWindow(QWidget):
 
     def clicked(self, qmodelindex):
         """Handle list widget item click event."""
+        self.main_window.media_player.hide_frame_overlay()
         print("clicked")
 
     def keyPressEvent(self, event):
@@ -135,11 +142,10 @@ class EventSelectionWindow(QWidget):
         self.first_label = self.list_widget.currentItem().text() #event
         self.second_label = self.list_widget_second.currentItem().text() #team
         position = self.main_window.media_player.media_player.position()
+        frame = int(position / 1000 * self.main_window.media_player.frame_rate)
         # self.x_coord = -1
         # self.y_coord = -1
-
-        self.main_window.list_manager.add_event(Event(self.second_label, self.first_label, ms_to_time(position)[0], ms_to_time(position)[1], self.x_coord, self.y_coord, position))
-
+        self.main_window.list_manager.add_event(Event(frame, self.second_label, self.first_label, ms_to_time(position)[0], ms_to_time(position)[1], self.x_coord, self.y_coord, position))
         self.main_window.list_display.display_list(self.main_window.list_manager.create_text_list())
 
         # Reset label variables and save to file
