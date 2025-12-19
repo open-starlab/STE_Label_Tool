@@ -59,26 +59,37 @@ class ListManager:
 			tmp_x_coord = event_i["x"]
 			tmp_y_coord = event_i["y"]
 			tmp_position = event_i["video_ms"]	
+			tmp_frame = event_i["frame"]
 			# print(tmp_team, tmp_label, tmp_minute, tmp_second, tmp_x_coord, tmp_y_coord, tmp_position)
-			event_list.append(Event(tmp_team, tmp_label, tmp_minute, tmp_second, tmp_x_coord, tmp_y_coord, tmp_position))
+			event_list.append(Event(tmp_frame, tmp_team, tmp_label, tmp_minute, tmp_second, tmp_x_coord, tmp_y_coord, tmp_position))
 		return event_list
 
 	def save_file(self, path, half):
-		final_list = list()
+		if self.event_list:
+			annotations = []
+			for event in self.event_list:
+				annotations.append([
+					event.frame,
+					event.team,
+					event.event,
+					event.minute,
+					event.second,
+					event.x_coord,
+					event.y_coord,
+					event.position,
+				])
 
-		list_other = self.read_csv(path)
-		final_list = list_other + [self.event_list[0]] if self.event_list != [] else list_other
-
-		if final_list != []:
-			annotations_dictionary = list()
-			for event_i in final_list:
-				temp_list = [event_i.team, event_i.event, event_i.minute, event_i.second, event_i.x_coord, event_i.y_coord, event_i.position]
-				annotations_dictionary.append(temp_list)
-		
-			df = pd.DataFrame(annotations_dictionary, columns=['team', 'event', 'minute', 'second', 'x', 'y', 'video_ms'])
+			df = pd.DataFrame(
+				annotations,
+				columns=['frame', 'team', 'event', 'minute', 'second', 'x', 'y', 'video_ms']
+			)
 		else:
-			df = pd.DataFrame(columns=['team', 'event', 'minute', 'second', 'x', 'y', 'video_ms'])
-
+			df = pd.DataFrame(
+				columns=['frame', 'team', 'event', 'minute', 'second', 'x', 'y', 'video_ms']
+			)
+		df['frame'] = df['frame'].astype(int)
+		df = df.sort_values(by=['frame'])
+		df['frame'] = df['frame'].astype(str)
 		df.to_csv(path, index=False)
 
 		

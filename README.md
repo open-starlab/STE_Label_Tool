@@ -17,7 +17,7 @@ The **STE Label Tool** is designed to assist in annotating event data, which can
 1. Install the required packages:
 
    ```bash
-   pip install pyqt5 pandas
+   pip install pyqt5 pandas opencv-python
    ```
 
 2. Launch the GUI:
@@ -40,6 +40,11 @@ The **STE Label Tool** is designed to assist in annotating event data, which can
 
 1. Select a row on the left side. Double-click it to locate the video at the same frame as the annotation.
 2. Delete the selected row by pressing the **"Delete"** key.
+
+### View Annotations
+1. Double-click a row on the left side to locate the video at the same frame as the annotation.
+2. press any key or click any button to hide the annotation overlay on the video.
+
 
 ### Configure Events and Teams
 
