@@ -58,14 +58,6 @@ The **STE Label Tool** is designed to assist in annotating event data, which can
 - Ensure that the video format is supported and that your system meets any necessary requirements for optimal performance.
 - For troubleshooting and support, please refer to the issues section of the respective GitHub repositories or create a new issue if needed.
 
-### Windows 11 note (MP4 playback)
-
-On some Windows 11 environments, MP4 videos may fail to render in the PyQt5/Qt video player (e.g., blank/white video area or DirectShow-related errors), even though the same MP4 plays correctly in Windows default players.
-
-**Workarounds**
-- If MP4 does not show in the tool, try converting the video to **AVI** or **WMV** and open that file instead. (In our tests, AVI/WMV playback worked reliably when MP4 did not.)
-- Alternatively, installing DirectShow codecs/filters (e.g., **LAV Filters** / codec packs) may resolve MP4 playback issues, depending on your system policy.
-
 If you encounter this issue, please include your OS version (Windows 10/11), video format, and any console logs when opening an issue.
 This tool is developed based on the SoccerNet action annotation tool. For more information, visit the [SoccerNetv2-DevKit Annotation](https://github.com/SilvioGiancola/SoccerNetv2-DevKit/tree/main/Annotation/actions) repository.
 
